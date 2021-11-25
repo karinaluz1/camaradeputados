@@ -1,0 +1,110 @@
+.cards {
+  display: flex;
+  gap: 90px;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: center;
+  margin: auto;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+.cards > * {
+  flex: 0 0 auto;
+}
+
+.cards-footer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+.cards-footer button {
+  color: #1b264f;
+  border: none;
+  cursor: pointer;
+}
+
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.order-4 {
+  order: 4;
+}
+
+.search {
+  display: flex;
+  width: 60%;
+  flex-direction: column;
+  margin: auto;
+}
+
+.busca {
+  font-size: 2rem;
+  font-family: "Nunito Sans", sans-serif;
+  color: var(--background);
+  padding: 10px 15px;
+  border-radius: 15px;
+  margin-top: 20px;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(50, 50, 50, 0.1);
+  border: 2px solid rgba(50, 50, 50, 0.1);
+  transition: border-color 0.3s;
+}
+
+.nome {
+  width: 100%;
+}
+
+.partido {
+  width: 30%;
+}
+
+::-webkit-input-placeholder {
+  color: #2b2d2f;
+  font-weight: 400;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+:-ms-input-placeholder {
+  color: #2b2d2f;
+  font-weight: 400;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+::placeholder {
+  color: #2b2d2f;
+  font-weight: 400;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.campos {
+  display: flex;
+  gap: 10px;
+}
+
+select {
+  color: #2b2d2f !important;
+}
+.search button {
+  background-color: #1b264f;
+  width: max-content;
+  color: var(--background);
+  padding: 8px 20px;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+}

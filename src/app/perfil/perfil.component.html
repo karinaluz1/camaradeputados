@@ -1,0 +1,69 @@
+<div class="perfil">
+  <div class="sidebar">
+    <section class="perfil_photo">
+      <img src="{{ deputado?.ultimoStatus?.urlFoto }}" alt="" />
+      <hr />
+      <ul>
+        <li>
+          <strong>
+            {{ deputado?.ultimoStatus?.siglaPartido }}/{{
+              deputado?.ultimoStatus?.siglaUf
+            }}
+          </strong>
+        </li>
+        <li>
+          <strong>Nascimento:</strong>
+          {{
+            deputado?.dataNascimento.slice(8, 10) +
+              "/" +
+              deputado?.dataNascimento.slice(5, 7) +
+              "/" +
+              deputado?.dataNascimento.slice(0, 4)
+          }}
+        </li>
+
+        <li>
+          <strong> Sexo:</strong>
+          {{
+            deputado.sexo == "F"
+              ? "Feminino"
+              : deputado.sexo == "M"
+              ? "Masculino"
+              : "-"
+          }}
+        </li>
+        <li><strong>E-mail:</strong> {{ deputado?.ultimoStatus?.email }}</li>
+      </ul>
+    </section>
+  </div>
+  <div class="sidebar_body">
+    <section class="body">
+      <h2>{{ deputado?.ultimoStatus?.nome }}</h2>
+      <h3>Próximo Evento</h3>
+      <h4>
+        {{
+          proximoEvento?.descricao
+            ? proximoEvento?.descricao
+            : "Nenhum evento encontrado."
+        }}
+      </h4>
+      <h3>Último Evento</h3>
+      <div class="evento">
+        <h4>
+          {{
+            ultimoEvento?.descricao
+              ? ultimoEvento?.descricao
+              : "Nenhum evento encontrado."
+          }}
+        </h4>
+        <p>
+          <strong>Início:</strong>
+          {{ converteData(ultimoEvento?.dataHoraInicio) }}
+        </p>
+        <p>
+          <strong>Fim:</strong> {{ converteData(ultimoEvento?.dataHoraFim) }}
+        </p>
+      </div>
+    </section>
+  </div>
+</div>

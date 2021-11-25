@@ -1,0 +1,81 @@
+<section class="search">
+  <input
+    class="busca nome"
+    type="text"
+    [(ngModel)]="nomeDeputado"
+    placeholder="Nome do Deputado"
+  />
+  <section class="campos">
+    <input
+      class="busca partido"
+      type="text"
+      [(ngModel)]="partidoDeputado"
+      placeholder="Sigla do Partido"
+    />
+    <select class="busca" [(ngModel)]="estadoDeputado">
+      <option value="" disabled selected>Estado</option>
+      <option value="AC">Acre</option>
+      <option value="AL">Alagoas</option>
+      <option value="AP">Amapá</option>
+      <option value="AM">Amazonas</option>
+      <option value="BA">Bahia</option>
+      <option value="CE">Ceará</option>
+      <option value="DF">Distrito Federal</option>
+      <option value="ES">Espírito Santo</option>
+      <option value="GO">Goiás</option>
+      <option value="MA">Maranhão</option>
+      <option value="MT">Mato Grosso</option>
+      <option value="MS">Mato Grosso do Sul</option>
+      <option value="MG">Minas Gerais</option>
+      <option value="PA">Pará</option>
+      <option value="PB">Paraíba</option>
+      <option value="PR">Paraná</option>
+      <option value="PE">Pernambuco</option>
+      <option value="PI">Piauí</option>
+      <option value="RJ">Rio de Janeiro</option>
+      <option value="RN">Rio Grande do Norte</option>
+      <option value="RS">Rio Grande do Sul</option>
+      <option value="RO">Rondônia</option>
+      <option value="RR">Roraima</option>
+      <option value="SC">Santa Catarina</option>
+      <option value="SP">São Paulo</option>
+      <option value="SE">Sergipe</option>
+      <option value="TO">Tocantins</option>
+    </select>
+    <select class="busca" [(ngModel)]="sexoDeputado">
+      <option value="" disabled selected>Sexo</option>
+      <option value="F">Feminino</option>
+      <option value="M">Masculino</option>
+    </select>
+  </section>
+  <button
+    (click)="
+      getDeputados(
+        'https://dadosabertos.camara.leg.br/api/v2/deputados?itens=9&ordem=ASC&ordenarPor=nome'
+      )
+    "
+  >
+    Buscar
+  </button>
+</section>
+<section class="cards">
+  <app-cartao *ngFor="let item of deputados" [deputado]="item"></app-cartao>
+</section>
+<section class="cards-footer">
+  <button
+    *ngFor="let link of links"
+    (click)="getDeputados(link.href)"
+    [hidden]="link.rel === 'self'"
+    [ngClass]="{
+      'order-1': link.rel == 'first',
+      'order-2': link.rel == 'previous',
+      'order-3': link.rel == 'next',
+      'order-4': link.rel == 'last'
+    }"
+  >
+    <i class="fas fa-angle-right fa-2x" *ngIf="link.rel === 'next'"></i>
+    <i class="fas fa-angle-double-right fa-2x" *ngIf="link.rel === 'last'"></i>
+    <i class="fas fa-angle-left fa-2x" *ngIf="link.rel === 'previous'"></i>
+    <i class="fas fa-angle-double-left fa-2x" *ngIf="link.rel === 'first'"></i>
+  </button>
+</section>

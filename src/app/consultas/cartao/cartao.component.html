@@ -1,0 +1,12 @@
+<div class="card">
+  <section class="card__photo">
+    <img src="{{ deputado.urlFoto }}" alt="" />
+  </section>
+  <section class="card__body">
+    <h2>{{ deputado.nome }}</h2>
+    <p>{{ deputado.siglaPartido }} - {{ deputado.siglaUf }}</p>
+    <a [routerLink]="['/deputado', deputado.id]">
+      <button><i class="fas fa-address-card"></i> VER PERFIL</button>
+    </a>
+  </section>
+</div>
